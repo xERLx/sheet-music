@@ -1,9 +1,14 @@
 \header {
-  title = "Untitled"
-  composer = "Composer"
+  title = "Pink Floyd -- Money"
+  composer = "Composer: Felix"
 }
 
 pause = {
+\time 7/4
+r1~r2~r4|
+}
+
+pauseFour = {
 \time 7/4
 r1~r2~r4|
 r1~r2~r4|
@@ -31,7 +36,16 @@ bridgeOne = {
 \time 6/4 
   e'8 b e4 g a b cis'
 \time 7/4
-  b4. r1
+  b2. r1
+}
+
+halfeVerseBaseline = {
+\time 7/4
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+
 }
 
 verseBaseline = {
@@ -59,8 +73,8 @@ bridgeBaseline = {
 }
 
 
-gesang = {\pause \pause \verseOne \bridgeOne}
-bass = {\verseBaseline \verseBaseline \bridgeBaseline}
+gesang = {\pauseFour \verseOne \bridgeOne \pause}
+bass = {\halfeVerseBaseline \verseBaseline \bridgeBaseline}
 
 \score{
 <<
@@ -70,10 +84,6 @@ bass = {\verseBaseline \verseBaseline \bridgeBaseline}
     \gesang
   }
 
-  \new TabStaff {
-    \set Staff.stringTunings = #guitar-tuning
-    \gesang
-  }
   \new TabStaff {
     \set Staff.stringTunings = \stringTuning <e, a, d g>
     \set TabStaff.minimumFret = #10
