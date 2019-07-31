@@ -3,8 +3,16 @@
   composer = "Composer"
 }
 
+pause = {
+\time 7/4
+r1~r2~r4|
+r1~r2~r4|
+r1~r2~r4|
+r1~r2~r4|
+}
 
 verseOne =  {
+\time 7/4
   fis'8 fis'4 r1 r8 d'8 d' |
   b4 r1 r4 d'4 |
   b4 d' b fis a b e'~|
@@ -17,35 +25,53 @@ verseOne =  {
 }
 
 bridgeOne = {
-  f'4 f'
+\time 4/4
+  fis'4 fis' fis'8 cis' fis4|
+  a cis' fis'8 fis' f'4|
+\time 6/4 
+  e'8 b e4 g a b cis'
+\time 7/4
+  b4. r1
+}
+
+verseBaseline = {
+\time 7/4
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
 }
 
 
-song = {\verseOne \bridgeOne}
+gesang = {\pause \pause \verseOne \bridgeOne}
+bass = {\verseBaseline \verseBaseline}
 
 \score{
 <<
-  \time 7/4
+  
   \new Staff {
     \clef treble
-    \song
+    \gesang
   }
 
   \new TabStaff {
     \set Staff.stringTunings = #guitar-tuning
-    \song
+    \gesang
   }
   \new TabStaff {
     \set Staff.stringTunings = \stringTuning <e, a, d g>
     \set TabStaff.minimumFret = #10
-    \set TabStaff.tabFullNotation = true
-    \song
+    \gesang
   }
   \new TabStaff {
     \set Staff.stringTunings = #bass-tuning
-    \set TabStaff.tabFullNotation = true
-    \set TabStaff.minimumFret = #5
-    \song
+    \tabFullNotation
+    \bass
   }
 >>
 \layout {}
