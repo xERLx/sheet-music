@@ -47,9 +47,20 @@ verseBaseline = {
   b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
 }
 
+bridgeBaseline = {
+\time 4/4
+  fis,2 fis,8 cis, fis,,4|
+  a,, cis, fis, f, |
+\time 6/4 
+  e,8 b,, e,,4 g,, a,, b,, d,
+\time 7/4
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+  b,,4 b,8 fis, b,,4 fis,, a,, b,, d, |
+}
+
 
 gesang = {\pause \pause \verseOne \bridgeOne}
-bass = {\verseBaseline \verseBaseline}
+bass = {\verseBaseline \verseBaseline \bridgeBaseline}
 
 \score{
 <<
